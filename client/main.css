@@ -135,3 +135,21 @@ header .hide-completed {
     padding-bottom: 5px;
   }
 }
+
+
+
+/*::::::::::::::::::::TREE::::::::::::::::::::::::::::*/
+.tree-list input[type="checkbox"] {
+ display: none;
+ position: relative;
+}
+
+.tree-list label {
+ position: relative;
+ display: inline-block;
+}
+
+.tree-list label:after {
+ content: '+';
+ position: static;
+}

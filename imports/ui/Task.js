@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tasks } from '../api/tasks.js';
+import ReactDOM from 'react-dom';
 
 // Task component - represents a single todo item
 export default class Task extends Component {
@@ -13,7 +14,7 @@ export default class Task extends Component {
 updateTask() {
     // Set the checked property to the opposite of its current value
     Tasks.update(this.props.task._id, {
-      $set: { text: this.props.task.text },
+      $set: { text: ReactDOM.findDOMNode(this.refs.textTask).value.trim() },
     });
   }
 
@@ -39,7 +40,7 @@ updateTask() {
               />
        
               <span className="text">
-             <strong>{this.props.task.username}</strong>: <input onChange={this.updateTask.bind(this) } type="text" value={this.props.task.text} />
+             <strong>{this.props.task.username}</strong>: <input ref="textTask" onChange={this.updateTask.bind(this) } type="text" value={this.props.task.text} />
               </span>
             </li>
     );
